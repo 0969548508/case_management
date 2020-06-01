@@ -1,0 +1,456 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+/*
+=====
+LEVEL 1. RESET STYLES
+=====
+*/
+
+.field {
+  --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #767676);
+}
+
+.field__input { 
+  background-color: transparent;
+  border-radius: 0;
+  border: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.field__input:focus::-webkit-input-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+}
+
+.field__input:focus::-moz-placeholder {
+  color: var(--uiFieldPlaceholderColor);
+  opacity: 1;
+}
+
+/*
+=====
+LEVEL 2. CORE STYLES
+=====
+*/
+
+.a-field {
+  display: inline-block;
+}
+
+.a-field__input { 
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.a-field__input:focus {
+  outline: none;
+}
+
+/*
+=====
+LEVEL 3. PRESENTATION STYLES
+=====
+*/
+
+/* a-field */
+
+.a-field {
+  --uiFieldHeight: var(--fieldHeight, 40px);  
+  --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+  --uiFieldBorderColor: var(--fieldBorderColor);
+
+  --uiFieldFontSize: var(--fieldFontSize, 1em);
+  --uiFieldHintFontSize: var(--fieldHintFontSize, 1em);
+
+  --uiFieldPaddingRight: var(--fieldPaddingRight, 15px);
+  --uiFieldPaddingBottom: var(--fieldPaddingBottom, 15px);
+  --uiFieldPaddingLeft: var(--fieldPaddingLeft, 15px);   
+
+  position: relative;
+  box-sizing: border-box;
+  font-size: var(--uiFieldFontSize);
+  padding-top: 1em;  
+}
+
+.a-field__input {
+  height: var(--uiFieldHeight);
+  padding: 0 var(--uiFieldPaddingRight) 0 var(--uiFieldPaddingLeft);
+  border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColor);  
+}
+
+.a-field__input::-moz-placeholder {
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.a-field__input:not(:placeholder-shown) ~ .a-field__label-wrap .a-field__label {
+  opacity: 0;
+  bottom: var(--uiFieldPaddingBottom);
+}
+
+.a-field__input:focus::-webkit-input-placeholder {
+  opacity: 1;
+  transition-delay: .2s;
+}
+
+.a-field__input:focus::-moz-placeholder {
+  opacity: 1;
+  transition-delay: .2s;
+}
+
+.a-field__label-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--uiFieldHeight); 
+
+  pointer-events: none;
+  cursor: text;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.a-field__label {
+  position: absolute;
+  left: var(--uiFieldPaddingLeft);
+  bottom: calc(50% - .5em);
+
+  line-height: 1;
+  font-size: var(--uiFieldHintFontSize);
+
+  pointer-events: none;
+  transition: bottom .2s cubic-bezier(0.9,-0.15, 0.1, 1.15), opacity .2s ease-out;
+  will-change: bottom, opacity;
+}
+
+.a-field__input:focus ~ .a-field__label-wrap .a-field__label {
+  opacity: 1;
+  bottom: var(--uiFieldHeight);
+}
+
+/* a-field_a1 */
+
+.a-field_a1 .a-field__input {
+  transition: border-color .2s ease-out;
+  will-change: border-color;
+  padding-left: 30px;
+}
+
+.a-field_a1 .a-field__input:focus {
+  border-color: var(--fieldBorderColorActive);
+}
+
+/* a-field_a2 */
+
+.a-field_a2 .a-field__label-wrap::after {
+  content: "";
+  box-sizing: border-box;
+  width: 0;
+  height: var(--uiFieldBorderWidth);
+  background-color: var(--fieldBorderColorActive);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;  
+
+  will-change: width;
+  transition: width .285s ease-out;
+}
+
+.a-field_a2 .a-field__input:focus ~ .a-field__label-wrap::after {
+  width: 100%;
+}
+
+/* a-field_a3 */
+
+.a-field_a3 {
+  padding-top: 1.5em;
+}
+
+.a-field_a3 .a-field__label-wrap::after {
+  content: "";
+  box-sizing: border-box;
+  width: 100%;
+  height: 0;
+
+  opacity: 0;
+  border: var(--uiFieldBorderWidth) solid var(--fieldBorderColorActive);
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  will-change: opacity, height;
+  transition: height .2s ease-out, opacity .2s ease-out;
+}
+
+.a-field_a3 .a-field__input:focus ~ .a-field__label-wrap::after {
+  height: 100%;
+  opacity: 1;
+}
+
+.a-field_a3 .a-field__input:focus ~ .a-field__label-wrap .a-field__label {
+  bottom: calc(var(--uiFieldHeight) + .5em);
+}
+
+/*
+=====
+LEVEL 4. SETTINGS
+=====
+*/
+
+.field {
+  --fieldBorderColor: #D1C4E9;
+  --fieldBorderColorActive: #673AB7;
+}
+
+/*
+=====
+DEMO
+=====
+*/
+
+body { 
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  min-height: 100vh;
+  line-height: 22px;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 15px;
+  
+  display: grid;
+  align-items: flex-end;
+  order: 1;
+}
+
+@media (min-width: 481px) {
+  .page{
+      /*grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));*/
+  }
+}
+
+input#remember {
+    width: 30px;
+    height: 30px;
+}
+
+button#btn-lka-login, button#btn-pin-lka-login {
+    height: 50px;
+    width: 380px;
+    border-radius: 25px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+/* identical to box height */
+    text-transform: uppercase;
+    background: #5DBFD4;
+    border-color: #5DBFD4;
+}
+
+i.user-icon {
+    margin-top: 10px;
+}
+
+i.warning-txt {
+  color: #FF0000;
+}
+
+.logo_login {
+  position: relative;
+  color: white;
+}
+
+.centered {
+  position: absolute;
+  top: 75%;
+  margin-left: 39px;
+  width: 90%;
+}
+
+.hr-rectangle {
+  width: 10%;
+  height: 5px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  margin-left: 0px;
+}
+
+.content-login {
+  width: 100%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+h2.panel-heading {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 57px;
+  color: #5DBFD4;
+}
+
+a.btn-back {
+  width: 49px;
+  height: 22px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #0693B1;
+}
+
+i#rm-user-icon {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+}
+
+i#rm-password-icon {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+}
+
+i#rm-email-icon {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+}
+
+input#email {
+  padding-right: 1.8rem;
+}
+
+input#password {
+  padding-right: 3.5rem;
+}
+
+input#one_time_password {
+  padding-left: 15px !important;
+}
+
+div.input-otp {
+  grid-template-columns: none !important;
+}
+
+a.btn-resend-code {
+  height: 22px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #0693B1;
+  margin-top: 54px !important;
+  text-decoration: none;
+}
+
+i.show-password, i.hide-password, i.show-new-password, i.hide-new-password, i.show-confirm-password, i.hide-confirm-password {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+}
+
+i.hide-password, i.hide-new-password, i.hide-confirm-password {
+  display: none;
+}
+
+span.remember-me {
+  position: absolute;
+  margin-top: 6px;
+  padding-left: 3.5rem;
+}
+
+a.forgot-password {
+  padding-top: 5px;
+  float: right;
+  z-index: 999;
+}
+
+.send-email-icon {
+  background: url(/images/send_mail.png) no-repeat;
+  width: 55px;
+  height: 20px;
+  margin-top: 13px;
+}
+
+span#resend-email {
+  color: #5DBFD4;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.forgot-password-form {
+  padding-top: 60px;
+  margin-left: 49px;
+}
+
+.forgot-password-header {
+  font-size: 24px;
+  line-height: 28px;
+}
+
+input.input-forgot-password {
+  border: 1px solid #E7E7E7;
+}
+
+button.custom-button {
+  height: 35px;
+  width: 150px;
+  left: 362px;
+  top: 579px;
+  border-radius: 25px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+  text-transform: uppercase;
+  text-align: center;
+  background: #5DBFD4;
+  border-color: #5DBFD4;
+}
+
+button.custom-button:hover {
+  background: #4cb1c7;
+  border-color: #5DBFD4;
+}
+
+a.forgot-password-login {
+  font-weight: bold;
+  font-size: 14px;
+  color: #0693B1;
+  margin: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+}
